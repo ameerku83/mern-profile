@@ -56,7 +56,7 @@ const Signup = () => {
 
            
              
-              <button type='submit' className='btn btn-warning'> Log in</button>
+              <button type='submit' className='btn btn-warning'> Sign up</button>
               <label className='text-center'>Don't have an account?<Link to={'/login'} >Login now</Link></label>
   
           </Form>

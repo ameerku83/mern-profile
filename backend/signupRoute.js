@@ -10,7 +10,7 @@ router.post('/signup',async(req,res)=>{
     
     let hashPassword= await bcrypt.hash(password,10)
 
-    let user = LoginModel({email,password:hashPassword,fullname})
+    let user = await  LoginModel({email,password:hashPassword,fullname})
     await user.save()
     res.status(200).send({message:"signup success"})
    } catch (error) {

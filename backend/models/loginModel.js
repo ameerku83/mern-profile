@@ -1,8 +1,8 @@
  const mongoose=require("mongoose")
 
  let loginShema=new mongoose.Schema({
-    fullname:String, 
-    email:{type:String,unique:true},
+    fullname:String,
+    email:String,
     password:String
 
 

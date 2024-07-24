@@ -9,7 +9,8 @@ const Message = () => {
   
     const onSubmit = async(data)=>{
      try {
-        let res= await axios.post('https://mern-profile-backend.onrender.com/message',data)
+        //https://mern-profile-backend.onrender.com
+        let res= await axios.post('  https://localhost:3400/message',data)
            console.log(res.data);
            alert("successfully sent message")
            reset()

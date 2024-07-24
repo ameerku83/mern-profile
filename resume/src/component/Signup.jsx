@@ -1,140 +1,123 @@
-
-
-
-import React, { useState } from 'react'
-import { Col, Container, Row,Form } from 'react-bootstrap'
-import axios from "axios"
-import "./Login.css"
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom'
-
-
-function Signup() {
-  let navigate=useNavigate()
-
-const [contactFormData,setContactFormData]=useState({
-  fullname:"",
-  email:"",
-  phone:"",
-  password:"",
-  passwordmatch:""
-})
-const [errors,seterror]=useState({
-  fullname:"",
-  email:"",
-  phone:"",
-  password:"",
-  passwordmatch:""
-})
-
- function validateForm (){
-
-
-
-  let valid=true
-  let newError={
-    fullname:"",
-  email:"",
-  phone:"",
-  password:"",
-  passwordmatch:""
-  }
-  if(!contactFormData.fullname.trim()){
-    newError.fullname="please enter your name!"
-    valid=false
-  }
-  if(!contactFormData.email.trim()){
-    newError.email="email reaquired"
-    valid=false
-  }else if(!/\S+@\S+\.\S+/.test(contactFormData.email)){
-    newError.email="enter valid email"
-    valid=false
-
-  }
-  if(!contactFormData.phone.trim()){
-    newError.phone="enter phone "
-    valid=false
-  }else if(!/^\d{10}$/.test(contactFormData.phone)){
-    newError.phone="phone number must be 10 digit"
-    valid=false
-
-  }
-  if( !/^(?=.*[A-Z])(?=.*[a-z])[a-zA-Z]{5,}/.test(contactFormData.password) ){
-    newError.password="password must be 5 character and 1 capital letter "
-    valid=false
-  }
-  if(contactFormData.passwordmatch!==contactFormData.password){
-    newError.passwordmatch=" enter the same password "
-    valid=false
-
-  }
-  seterror(newError)
-
- 
-  return valid
-}
-
-const handleSubmit= async(e)=>{
-  e.preventDefault()
-  if(validateForm()){
-    try {
-      let response= await axios.post('https://mern-profile-backend.onrender.com/signup', contactFormData)
-      console.log(response.data);
-      navigate('/login')
-     alert("successs")
-    } catch (error) {
-      console.log('There was an error signing up!', error);
-      
-    }
-  }
-
- 
-
-}
-const onChangeHandler = (e)=>{
-
-  const {name,value}= e.target
-  setContactFormData({...contactFormData,[name]:value})
-}
-
-
-
+import "./Login.css"
+const Signup = () => {
+  const { register, handleSubmit, watch,formState:{errors} } = useForm();
+    const navigate=useNavigate()
+  const onSubmit = async(data) => {
+   await axios.post('http://localhost:3400/signup', data)
+      .then(response => {
+        console.log(response.data);
+        navigate("/login")
+        alert("signup success")
+      })
+      .catch(error => {
+        console.log('There was an error signing up!', error);
+        alert('There was an error signing up!')
+      });
+  };
 
   return (
-  
-  <Container>
-    
-    <Row className='justify-content-center'>
-      <Col md={6} >
-      <div className='shadow bg-white p-3 m-4' style={{borderRadius:10}}>
-        <h3 className='text-center' >Sign up</h3>
-       
-        <Form className='form-container my-3' onSubmit={handleSubmit}>
+    // <Container >
+    //  <Row className=' justify-content-center'>
+    //   <Col lg={6} className='shadow bg-white p-4 m-4' >
+     
+    // <Form onSubmit={handleSubmit(onSubmit)}>
+    //   <Form.Group controlId="formBasicEmail">
+    //     <Form.Label>Email address</Form.Label>
+    //     <Form.Control
+    //       type="email"
+          
+    //       {...register("email",{ required: "enter your email" })}
+    //     />
+    //     <span className='text-danger' >{errors.email?.message}</span>
+    //   </Form.Group>
+
+    //   <Form.Group controlId="formBasicPassword">
+    //     <Form.Label>Password</Form.Label>
+    //     <Form.Control
+    //       type="password"
+          
+    //       {...register("password",{ required: true , pattern:{ value:/^(?=.*[A-Z])(?=.*[a-z])[a-zA-Z]{5,}/, message:"minimum 5 and one upper case "}})}
+    //     />
+    //     <span className='text-danger' >{errors.password?.message}</span>
         
-        Full Name
-          <Form.Control type="text" name="fullname" placeholder='please enter your fullname' onChange={onChangeHandler}/>
-          <span> {errors?.fullname } </span>
-          Email
-          <Form.Control type="email" name="email" placeholder='please enter your email' onChange={onChangeHandler}/>
-          <span> {errors?.email ?? ''} </span>
-          Password
-          <Form.Control type="password" name='password' placeholder='enter your password' onChange={onChangeHandler}/>  
-            <span> {errors?.password ?? ''} </span>
+    //   </Form.Group>
+
+    //   <Form.Group controlId="formBasicPasswordConfirm">
+    //     <Form.Label>Confirm Password</Form.Label>
+    //     <Form.Control
+    //       type="password"
+          
+    //       {...register("confirmPassword",{
+    //         validate: value => value === watch('password')||"password does not match"
+    //       })}
+    //     />
+    //     <span className='text-danger'  >{errors.confirmPassword?.message}</span>
+    //   </Form.Group>
+  
+    //   <button className='btn btn-warning' type="submit">
+    //     Signup
+    //   </button>
+    //   <label className='text-center'>Alread have an account?<Link to={'/login'} >Login now</Link></label>
+    // </Form>
+    // </Col>
+    // </Row>
+    // </Container>
+
+    <div>
+      <Container>
+     
+      <Row className='justify-content-center'>
+        <Col md={6} >
+        <div className='shadow bg-white p-4 m-4' style={{borderRadius:10}}>
+          <h3 className='text-center' >Sign up</h3>
+          
+          <Form className='form-container my-3' onSubmit={handleSubmit(onSubmit)} >
+            Full Name
+          < Form.Control   type="text" name="name" placeholder='please enter your name' {...register("fullname",{required:"enter your name",minLength:{value:3,message:"minimum 3 characters"}})}  />
+          <label className='text-danger' >{errors.fullname?.message }</label>
+            Email
+            < Form.Control   type="email" name="email" placeholder='please enter your email' {...register("email",{required:"enter your email",pattern:{value:/\S+@\S+\.\S+/,message:"enter valid email"}})}  />
+            Password
+            <Form.Control
+           type="password"
+          
+          {...register("password",{ required: true , pattern:{ value:/^(?=.*[A-Z])(?=.*[a-z])[a-zA-Z]{5,}/, message:"minimum 5 and one upper case "}})}
+        />
+        <label className='text-danger' >{errors.password?.message }</label>
+        Confirm Password
+        <Form.Control
+          type="password"
+          
+          {...register("confirmPassword",{
+            validate: value => value === watch('password')||"password does not match"
+          })}
+        />
+        <span className='text-danger'  >{errors.confirmPassword?.message}</span>
+
            
-              Confirm Password
-            <Form.Control type="password" name='passwordmatch' placeholder='confirm your password' onChange={onChangeHandler}/>
-            <span> {errors?.passwordmatch ?? ''} </span>
-            <button type='submit'  className='btn btn-warning'>Sign up</button>
-            <label className='text-center'>Already have an account?<Link to={'/Login'} >Login now</Link></label>
-        </Form>
+             
+              <button type='submit' className='btn btn-warning'> Log in</button>
+              <label className='text-center'>Don't have an account?<Link to={'/login'} >Login now</Link></label>
+  
+          </Form>
+        </div>
+  
+        </Col>
+      </Row>
+    </Container>
       </div>
-      </Col>
-    </Row>
-  </Container>
-    
-    
-   
+  );
+};
 
-  )
-}
+export default Signup;
 
-export default Signup
+
+
+ // 
+//  
+  // /^\d{10}$/

@@ -17,7 +17,7 @@ import Message from './component/Message';
 function App() {
   const PrivetRoute =({children}) => {
     const {isAuth}=useAuthStore()
-return isAuth ? children : <Navigate to="/signup" />;
+return isAuth ? children : <Navigate to="/login" />;
 };
   return (
 

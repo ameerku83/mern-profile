@@ -123,7 +123,7 @@ const onChangeHandler = (e)=>{
               Confirm Password
             <Form.Control type="password" name='passwordmatch' placeholder='confirm your password' onChange={onChangeHandler}/>
             <span> {errors?.passwordmatch ?? ''} </span>
-            <button className='btn btn-warning'>Sign up</button>
+            <button type='submit'  className='btn btn-warning'>Sign up</button>
             <label className='text-center'>Already have an account?<Link to={'/Login'} >Login now</Link></label>
         </Form>
       </div>

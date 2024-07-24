@@ -14,7 +14,7 @@ const Login = () => {
  let   handleSubmit= async(e)=>{
     e.preventDefault()
     try {
-        let response= await axios.post('http://localhost:3400/login', {email,password})
+        let response= await axios.post('https://mern-profile-backend.onrender.com/login', {email,password})
         console.log(response.data);
         loginAuth(response.data.token)
        alert("Login successs")

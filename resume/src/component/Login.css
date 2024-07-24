@@ -1,0 +1,25 @@
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+span{
+    color: red;
+}
+
+label{
+    font-size: 12px;
+    font-weight: 700;
+   
+}
+
+input{
+    border-radius: 5px;
+    padding-left: 5px ;
+}
+button{
+   
+    border-radius: 10px;
+}

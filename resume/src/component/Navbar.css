@@ -1,0 +1,16 @@
+Nav {
+ 
+    font-size: 20px;
+    font-weight: 600;
+   background-color:gold;
+    
+   
+}
+
+
+
+.nav-link:hover{
+width: fit-content;
+text-decoration: underline;
+font-size:20px;
+}

@@ -8,7 +8,7 @@ const Signup = () => {
   const { register, handleSubmit, watch,formState:{errors} } = useForm();
     const navigate=useNavigate()
   const onSubmit = async(data) => {
-   await axios.post('http://localhost:3400/signup', data)
+   await axios.post('https://mern-profile-backend.onrender.com/signup', data)
       .then(response => {
         console.log(response.data);
         navigate("/login")
@@ -21,52 +21,7 @@ const Signup = () => {
   };
 
   return (
-    // <Container >
-    //  <Row className=' justify-content-center'>
-    //   <Col lg={6} className='shadow bg-white p-4 m-4' >
-     
-    // <Form onSubmit={handleSubmit(onSubmit)}>
-    //   <Form.Group controlId="formBasicEmail">
-    //     <Form.Label>Email address</Form.Label>
-    //     <Form.Control
-    //       type="email"
-          
-    //       {...register("email",{ required: "enter your email" })}
-    //     />
-    //     <span className='text-danger' >{errors.email?.message}</span>
-    //   </Form.Group>
-
-    //   <Form.Group controlId="formBasicPassword">
-    //     <Form.Label>Password</Form.Label>
-    //     <Form.Control
-    //       type="password"
-          
-    //       {...register("password",{ required: true , pattern:{ value:/^(?=.*[A-Z])(?=.*[a-z])[a-zA-Z]{5,}/, message:"minimum 5 and one upper case "}})}
-    //     />
-    //     <span className='text-danger' >{errors.password?.message}</span>
-        
-    //   </Form.Group>
-
-    //   <Form.Group controlId="formBasicPasswordConfirm">
-    //     <Form.Label>Confirm Password</Form.Label>
-    //     <Form.Control
-    //       type="password"
-          
-    //       {...register("confirmPassword",{
-    //         validate: value => value === watch('password')||"password does not match"
-    //       })}
-    //     />
-    //     <span className='text-danger'  >{errors.confirmPassword?.message}</span>
-    //   </Form.Group>
-  
-    //   <button className='btn btn-warning' type="submit">
-    //     Signup
-    //   </button>
-    //   <label className='text-center'>Alread have an account?<Link to={'/login'} >Login now</Link></label>
-    // </Form>
-    // </Col>
-    // </Row>
-    // </Container>
+   
 
     <div>
       <Container>

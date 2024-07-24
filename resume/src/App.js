@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter,Routes,Route, Navigate} from "react-router-dom"
+import { Navigate, createBrowserRouter} from "react-router-dom"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,29 +14,29 @@ import { useAuthStore } from './store/authstore';
 import Message from './component/Message';
 
 
-function App() {
+
   const PrivetRoute =({children}) => {
     const {isAuth}=useAuthStore()
 return isAuth ? children : <Navigate to="/login" />;
 };
-  return (
 
-    <BrowserRouter>
-    
-   
-   
-    <Routes>
-      
-      <Route path='/' element={ <PrivetRoute><Home/></PrivetRoute>  } />
-      <Route path='/signup' element={<Signup/>} />
-      <Route path='/login' element={<Login/>} />
-      <Route path='/message' element={<PrivetRoute><Message/></PrivetRoute>} />
+const router= createBrowserRouter([
+  {
+    path:'/',
+    element:<PrivetRoute><Home/></PrivetRoute>
+  },
+  {
+    path:'/login',
+    element:<Login/>
+  },
+  {
+    path:'/signup',
+    element:<Signup/>
+  },
+  {
+    path:'/message',
+    element:<PrivetRoute><Message/></PrivetRoute>
+  }
+])
 
-    </Routes>
-   
-    </BrowserRouter>
-
-  );
-}
-
-export default App;
+export default router;

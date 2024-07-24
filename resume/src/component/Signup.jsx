@@ -79,7 +79,7 @@ const handleSubmit= async(e)=>{
     try {
       let response= await axios.post('https://mern-profile-backend.onrender.com/signup', contactFormData)
       console.log(response.data);
-      navigate('/login')
+      navigate('/')
      alert("successs")
     } catch (error) {
       console.log('There was an error signing up!', error);

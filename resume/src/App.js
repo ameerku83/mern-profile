@@ -12,6 +12,7 @@ import Signup from './component/Signup';
 import Login from './component/Login';
 import { useAuthStore } from './store/authstore';
 import Message from './component/Message';
+import ErrorPage from './component/ErrorPage';
 
 
 
@@ -33,10 +34,14 @@ const router= createBrowserRouter([
     path:'/signup',
     element:<Signup/>
   },
-  {
-    path:'/message',
-    element:<PrivetRoute><Message/></PrivetRoute>
-  }
+    {
+      path:'/message',
+      element:<PrivetRoute><Message/></PrivetRoute>
+    },
+    {
+      path:"*",
+      element:<ErrorPage/>
+    }
 ])
 
 export default router;

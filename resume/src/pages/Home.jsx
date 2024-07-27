@@ -4,6 +4,7 @@ import {Container,Row,Col} from 'react-bootstrap';
 import LatestProjects from '../component/LatestProjects';
 import NavContact from '../component/NavContact';
 import Footer from '../component/Footer';
+import Message from '../component/Message';
 
 const Home = () => {
   
@@ -79,6 +80,8 @@ const Home = () => {
        </div>
 
        <LatestProjects/>
+       
+       <Message/>
 
        <Footer/>
       

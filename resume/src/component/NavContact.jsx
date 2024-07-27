@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import "./Navbar.css"
 import { useAuthStore } from '../store/authstore';
+import Message from './Message';
 
 
 
@@ -34,7 +35,7 @@ function NavContact() {
             </Nav>
             <Nav className="ms-auto">
               <Nav.Link className=' active nav-link' onClick={logout}>Logout</Nav.Link>
-              <Nav.Link className=' active nav-link' as={Link} to={'/message'} >Contact me</Nav.Link>
+              
             </Nav>
           </Navbar.Collapse>
         </Container>

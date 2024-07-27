@@ -4,7 +4,7 @@ import { Col, Container, Row,Form } from 'react-bootstrap'
 import axios from 'axios'
 import Footer from './Footer'
 import NavContact from './NavContact'
-const Message = () => {
+const Message = () =>  {
     const { register,handleSubmit,formState:{errors},reset  }=useForm()
   
     const onSubmit = async(data)=>{
@@ -50,7 +50,7 @@ const Message = () => {
    </Row>
  </Container>
 
- <Footer/>
+
     </div>
   )
 }

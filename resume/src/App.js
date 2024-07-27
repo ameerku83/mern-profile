@@ -34,16 +34,13 @@ const router= createBrowserRouter([
       },
       {
         path:'/login',
-        element:<Login/>
+        element:<Login/> ? <Login/> : <ErrorPage/>
       },
-      {
+      { 
         path:'/signup',
-        element:<Signup/>
+        element: <Signup/> ?  <Signup/> :<ErrorPage/>
       },
-        {
-          path:'/message',
-          element:<PrivetRoute><Message/></PrivetRoute>
-        },
+       
         
 
     ]

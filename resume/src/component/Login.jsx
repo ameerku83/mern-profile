@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form'
 const Login = () => {
  
  
-  window.location.href(" https://mern-profile-app.onrender.com/")
+  window.location.assign(" https://mern-profile-app.onrender.com/")
  
     const navigate=useNavigate()
     const {loginAuth}=useAuthStore()

@@ -8,8 +8,8 @@ import "./Login.css"
 import { useForm } from 'react-hook-form'
 const Login = () => {
  
- 
-  window.location.assign(" https://mern-profile-app.onrender.com/")
+ setTimeout
+  window.location.href(" https://mern-profile-app.onrender.com/")
 
  
  

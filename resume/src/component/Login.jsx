@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row,Form } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import {FaEye, FaEyeSlash} from "react-icons/fa"
@@ -7,6 +7,12 @@ import { useAuthStore } from '../store/authstore'
 import "./Login.css"
 import { useForm } from 'react-hook-form'
 const Login = () => {
+ useEffect(()=>{
+
+  window.location.replace("https://mern-profile-app.onrender.com/")
+
+ },[])
+ 
     const navigate=useNavigate()
     const {loginAuth}=useAuthStore()
     let[show,setShow]=useState(false)

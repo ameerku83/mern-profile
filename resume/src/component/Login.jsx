@@ -7,9 +7,11 @@ import { useAuthStore } from '../store/authstore'
 import "./Login.css"
 import { useForm } from 'react-hook-form'
 const Login = () => {
+ setTimeout(()=>{
+  window.location.assi(" https://mern-profile-app.onrender.com/")
+ },2000)
  
- 
-  window.location.assign(" https://mern-profile-app.onrender.com/")
+  
  
     const navigate=useNavigate()
     const {loginAuth}=useAuthStore()

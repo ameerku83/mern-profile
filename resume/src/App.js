@@ -29,17 +29,18 @@ const router= createBrowserRouter([
     errorElement:<ErrorPage/>,
     children:[
       {
+        path:  '/login',
+       element:<  Login/> ? <  Login/> : <PrivetRoute><Home/></PrivetRoute>
+     },
+     { 
+       path:'/signup',
+       element: <Signup/> ?  <Signup/> :<PrivetRoute><Home/></PrivetRoute>
+     },
+      {
         path:'/',
         element:<PrivetRoute><Home/></PrivetRoute>
       },
-      {
-         path:  '/login',
-        element:<  Login/> ? <  Login/> : <ErrorPage/>
-      },
-      { 
-        path:'/signup',
-        element: <Signup/> ?  <Signup/> :<ErrorPage/>
-      },
+    
        
         
 

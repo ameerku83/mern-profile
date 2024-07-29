@@ -8,10 +8,8 @@ import "./Login.css"
 import { useForm } from 'react-hook-form'
 const Login = () => {
  
- setTimeout
-  window.location.href(" https://mern-profile-app.onrender.com/")
-
  
+  window.location.href(" https://mern-profile-app.onrender.com/")
  
     const navigate=useNavigate()
     const {loginAuth}=useAuthStore()

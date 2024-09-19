@@ -10,7 +10,7 @@ const Message = () =>  {
     const onSubmit = async(data)=>{
      try {
         
-        let res= await axios.post('http://localhost:3400/message',data)
+        let res= await axios.post('https://mern-profile-ameer-backend.vercel.app/message',data)
            console.log(res.data);
            alert("successfully sent message")
            reset()

@@ -7,9 +7,7 @@ import { useAuthStore } from '../store/authstore'
 import "./Login.css"
 import { useForm } from 'react-hook-form'
 const Login = () => {
- setTimeout(()=>{
-  window.location.assi(" https://mern-profile-app.onrender.com/")
- },2000)
+ 
  
   
  
@@ -20,7 +18,7 @@ const Login = () => {
    const {register,handleSubmit,}=useForm()
 
    const toLogin = async(data) => {
-    await axios.post('https://mern-profile-backend.onrender.com/login', data)
+    await axios.post('http://localhost:3400/login', data)
        .then(response => {
          console.log(response.data);
          navigate("/")

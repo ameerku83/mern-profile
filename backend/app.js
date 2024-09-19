@@ -22,9 +22,7 @@ mongoose.connect(process.env.MONGO_URL)
 app.use("/",router)
 
 
-app.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname,"resume","build","index.html"))
-})
+
 app.use( express.static(path.join(__dirname,"resume","build")))
 
 app.listen(PORT,()=>{

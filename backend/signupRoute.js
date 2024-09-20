@@ -52,7 +52,5 @@ router.post('/message',async(req,res)=>{
     
    }  
 })
-router.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname,"resume","build","index.html"))
-})
+
 module.exports=router

@@ -7,11 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import Home from './pages/Home';
-import LatestProjects from './component/LatestProjects';
+
 import Signup from './component/Signup';
 import Login from './component/Login';
 import { useAuthStore } from './store/authstore';
-import Message from './component/Message';
+
 import ErrorPage from './component/ErrorPage';
 import Root from './component/Root';
 

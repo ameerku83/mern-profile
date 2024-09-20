@@ -8,7 +8,7 @@ const Signup = () => {
   const { register, handleSubmit, watch,formState:{errors} } = useForm();
     const navigate=useNavigate()
   const onSubmit = async(data) => {
-   await axios.post('https://mern-profile-ameer-backend.vercel.app/signup', data)
+   await axios.post('http://localhost:3400/signup', data)
       .then(response => {
         console.log(response.data);
         navigate("/login")

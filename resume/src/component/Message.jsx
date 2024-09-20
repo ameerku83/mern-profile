@@ -2,7 +2,6 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import { Col, Container, Row,Form } from 'react-bootstrap'
 import axios from 'axios'
-import Footer from './Footer'
 import NavContact from './NavContact'
 const Message = () =>  {
     const { register,handleSubmit,formState:{errors},reset  }=useForm()
@@ -10,7 +9,7 @@ const Message = () =>  {
     const onSubmit = async(data)=>{
      try {
         
-        let res= await axios.post('https://mern-profile-ameer-backend.vercel.app/message',data)
+        let res= await axios.post('http://localhost:3400/message',data)
            console.log(res.data);
            alert("successfully sent message")
            reset()
@@ -40,8 +39,6 @@ const Message = () =>  {
          < Form.Control as="textarea" rows={3}  type="text"  placeholder=' enter your message' {...register("message",{required:"please enter message",minLength:{value:5,message:"minimum 5 character"}})} />
          <span>{errors.message?.message }</span>
          
-         
-          
            <button type='submit' className='btn btn-warning'> Send</button>
        </Form>
      </div>

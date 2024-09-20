@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { Col, Container, Row,Form } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import {FaEye, FaEyeSlash} from "react-icons/fa"
@@ -18,7 +18,7 @@ const Login = () => {
    const {register,handleSubmit,}=useForm()
 
    const toLogin = async(data) => {
-    await axios.post('https://mern-profile-ameer-backend.vercel.app/login', data)
+    await axios.post('http://localhost:3400/login', data)
        .then(response => {
          console.log(response.data);
          navigate("/")

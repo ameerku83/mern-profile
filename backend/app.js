@@ -11,7 +11,12 @@ require('dotenv').config()
 app.use(morgan("dev"))
 const PORT=process.env.PORT
 // app.use('/', router)   
-app.use(cors())
+app.use(cors(
+    {
+        origin:"https://mern-profile-ameer-backend.vercel.app",
+        credentials:true
+    }
+))
 app.use(express.json())
 mongoose.connect(process.env.MONGO_URL)
 .then(()=> {

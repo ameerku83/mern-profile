@@ -13,7 +13,7 @@ const PORT=process.env.PORT
 // app.use('/', router)   
 app.use(cors(
     {
-        origin:["https://mern-profile-ameer-backend.vercel.app","http://localhost:3001"],
+        origin:["https://mern-ameerku-front-profile.vercel.app","http://localhost:3001"],
         credentials:true
     }
 ))
@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGO_URL)
     console.log('db conected');
 })
 .catch((error)=>console.log(error))    
+
 app.get("/hello",(req,res)=>{
     res.json("hello world")
 })

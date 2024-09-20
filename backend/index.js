@@ -10,12 +10,7 @@ require('dotenv').config()
 app.use(morgan("dev"))
 const PORT=process.env.PORT
 // app.use('/', router)   
-app.use(cors(
-    {
-        origin:"http://localhost:3001",
-        credentials:true
-    }
-))
+app.use(cors())
 app.use(express.json())
 mongoose.connect(process.env.MONGO_URL)
 .then(()=> {

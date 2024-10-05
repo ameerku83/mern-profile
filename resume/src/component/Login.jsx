@@ -51,7 +51,7 @@ const Login = () => {
             </div>
              
               <button type='submit' className='btn btn-warning'> Log in</button>
-              <label className='text-center'>Don't have an account?<Link to={'/signup'} >Signup now</Link></label>
+              <label className='text-center'>Don't have an account?<Link to={'/signup'} > Signup Now</Link></label>
   
           </Form>
         </div>
